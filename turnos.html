@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Portfolio Dra. Veterinaria - Turnos (turnos.html)
+  ------------------------------------------------------------
+  - Página dedicada al ABM de turnos (Altas, Bajas, Modificaciones)
+    utilizando LocalStorage desde js/turnos.js.
+  - Comparte estructura visual y de navegación con index.html
+    para mantener coherencia en todo el sitio.
+  ============================================================
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Turnos | Portfolio Dra. Veterinaria</title>
+
+    <!-- Metadatos básicos para SEO (adaptados a la página de turnos) -->
+    <meta
+      name="author"
+      content="Dra. Sol Barel - Portfolio Veterinaria"
+    />
+    <meta
+      name="description"
+      content="Gestión de turnos online para la clínica veterinaria de la Dra. Sol Barel. Reserva, edita y administra turnos de forma sencilla."
+    />
+    <meta
+      name="keywords"
+      content="turnos veterinaria, turnos online, agenda veterinaria, clínica veterinaria, mascotas"
+    />
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+    <meta
+      name="theme-color"
+      content="#a8509b"
+    />
+
+    <link
+      rel="icon"
+      href="./Imagenes/favicon.png"
+      type="image/png"
+    />
+
+    <!-- Fallback de fuentes igual que en index.html -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+  </head>
+
+  <body>
+    <a
+      href="#contenido-turnos"
+      class="salto-navegacion"
+      >Saltar al contenido principal</a
+    >
+
+    <header>
+      <div class="contenedor barra-superior">
+        <div class="logo-sitio">
+          <img
+            src="./Imagenes/Icono1.jpg"
+            alt="Ícono de la clínica veterinaria de la Dra. Sol Barel"
+            class="logo-sitio__imagen"
+          />
+          <div>
+            <div class="logo-sitio__marca">Dra. Sol Barel</div>
+            <div class="logo-sitio__subtitulo">
+              Médica Veterinaria · Cuidado integral de perros y gatos
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="nav-toggle"
+          aria-label="Abrir o cerrar menú de navegación"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          <span class="nav-toggle__linea"></span>
+        </button>
+
+        <nav
+          aria-label="Navegación principal"
+          class="nav-principal"
+        >
+          <ul
+            id="menu-principal"
+            class="nav-lista"
+          >
+            <li class="nav-item">
+              <a href="index.html#inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#sobre-mi">Sobre mí</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#servicios">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <!-- En esta página marcamos Turnos como sección activa si se desea más adelante con una clase -->
+              <a href="turnos.html">Turnos</a>
+            </li>
+            <li class="nav-item nav-item--dropdown">
+              <button
+                class="nav-dropdown__toggle"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Más secciones
+                <span class="nav-dropdown__icon">▾</span>
+              </button>
+              <ul
+                class="nav-dropdown__lista"
+                aria-label="Más secciones del sitio"
+              >
+                <li class="nav-dropdown__item">
+                  <a href="index.html#testimonios">Testimonios</a>
+                </li>
+                <li class="nav-dropdown__item">
+                  <a href="index.html#contacto">Contacto</a>
+                </li>
+                <li class="nav-dropdown__item">
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Abrir ubicación en Google Maps en una nueva pestaña"
+                  >
+                    Ver ubicación en Google Maps
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido-turnos">
+      <!--
+        Sección principal del módulo de turnos:
+        - Formulario para crear/editar turnos
+        - Tabla/listado con los turnos guardados en LocalStorage
+      -->
+      <section
+        class="seccion--fondo-suave"
+        aria-labelledby="titulo-turnos-abm"
+      >
+        <div class="contenedor">
+          <h1
+            id="titulo-turnos-abm"
+            class="seccion-titulo"
+          >
+            Gestión de turnos
+          </h1>
+          <p class="seccion-subtitulo">
+            Carga, edita y elimina turnos para tus pacientes. 
+          </p>
+
+          <!-- Mensajes de feedback para el usuario -->
+          <div
+            id="turnos-mensaje"
+            aria-live="polite"
+            class="turnos-mensaje"
+          ></div>
+
+          <!-- Formulario de alta/modificación de turnos -->
+          <form
+            id="form-turnos"
+            novalidate
+            class="turnos-formulario"
+          >
+            <!-- Campo oculto para saber si estamos editando un turno existente -->
+            <input
+              type="hidden"
+              id="turno-id"
+              name="turnoId"
+            />
+
+            <div class="turnos-formulario__grid">
+              <div class="turnos-campo">
+                <label for="dueno">Nombre del tutor / dueño</label>
+                <input
+                  type="text"
+                  id="dueno"
+                  name="dueno"
+                  required
+                  placeholder="Ej: Ana López"
+                />
+              </div>
+
+              <div class="turnos-campo">
+                <label for="mascota">Nombre de la mascota</label>
+                <input
+                  type="text"
+                  id="mascota"
+                  name="mascota"
+                  required
+                  placeholder="Ej: Milo"
+                />
+              </div>
+
+              <div class="turnos-campo">
+                <label for="especie">Especie</label>
+                <select
+                  id="especie"
+                  name="especie"
+                  required
+                >
+                  <option value="">Seleccionar</option>
+                  <option value="perro">Perro</option>
+                  <option value="gato">Gato</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="turnos-campo">
+                <label for="servicio">Servicio</label>
+                <select
+                  id="servicio"
+                  name="servicio"
+                  required
+                >
+                  <option value="">Seleccionar</option>
+                  <option value="consulta-general">Consulta general</option>
+                  <option value="vacunacion">Vacunación</option>
+                  <option value="control">Control de rutina</option>
+                  <option value="nutricion">Asesoramiento nutricional</option>
+                </select>
+              </div>
+
+              <div class="turnos-campo">
+                <label for="fecha">Fecha</label>
+                <input
+                  type="date"
+                  id="fecha"
+                  name="fecha"
+                  required
+                />
+              </div>
+
+              <div class="turnos-campo">
+                <label for="hora">Hora</label>
+                <input
+                  type="time"
+                  id="hora"
+                  name="hora"
+                  required
+                />
+              </div>
+
+              <div class="turnos-campo turnos-campo--full">
+                <label for="notas">Notas adicionales</label>
+                <textarea
+                  id="notas"
+                  name="notas"
+                  rows="3"
+                  placeholder="Información relevante sobre la mascota o el motivo de la consulta"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="turnos-formulario__acciones">
+              <button
+                type="submit"
+                class="boton boton--primario"
+              >
+                Guardar turno
+              </button>
+              <button
+                type="button"
+                id="btn-cancelar-edicion"
+                class="boton boton--secundario"
+              >
+                Cancelar edición
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Listado / tabla de turnos -->
+      <section aria-labelledby="titulo-listado-turnos">
+        <div class="contenedor">
+          <div class="turnos-listado-encabezado">
+            <div>
+              <h2
+                id="titulo-listado-turnos"
+                class="seccion-titulo"
+              >
+                Turnos cargados
+              </h2>
+              <p class="seccion-subtitulo">
+                Este es el listado de turnos cargados
+              </p>
+            </div>
+            <button
+              type="button"
+              id="btn-eliminar-todos"
+              class="boton boton--secundario"
+            >
+              Eliminar todos los turnos
+            </button>
+          </div>
+
+          <div class="turnos-tabla-contenedor">
+            <table class="turnos-tabla">
+              <thead>
+                <tr>
+                  <th>Tutor/a</th>
+                  <th>Mascota</th>
+                  <th>Especie</th>
+                  <th>Servicio</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="turnos-tabla-cuerpo">
+                <!-- JavaScript insertará aquí las filas de los turnos -->
+              </tbody>
+            </table>
+            <p
+              id="turnos-vacio"
+              class="turnos-vacio"
+            >
+              Aún no hay turnos cargados.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="contenedor footer-grid">
+        <section aria-label="Información de la clínica">
+          <h3 class="footer-col-titulo">Clínica Veterinaria</h3>
+          <p>
+            Carlos Calvo 2788, CABA · Teléfono: (xxx) xxx-xxxx<br />
+            Horarios de atención: Lun a Vie de 9 a 19 h · Sábados de 9 a 13 h.
+          </p>
+        </section>
+        <section aria-label="Enlaces rápidos">
+          <h3 class="footer-col-titulo">Enlaces rápidos</h3>
+          <ul>
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="turnos.html">Turnos</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </section>
+        <section aria-label="Redes sociales">
+          <h3 class="footer-col-titulo">Seguir en redes</h3>
+          <p>
+            <a
+              href="https://www.instagram.com/dogtora_barel?igsh=MXdzd3FwcTB2YmM1cg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Abrir perfil de Instagram en nueva pestaña"
+              >Instagram</a
+            >
+            <br />
+            
+          </p>
+        </section>
+      </div>
+
+      
+    </footer>
+
+    <!-- Reutilizamos main.js para la navegación y el footer -->
+    <script
+      src="js/main.js"
+      defer
+    ></script>
+    <!-- Lógica específica del ABM de turnos -->
+    <script
+      src="js/turnos.js"
+      defer
+    ></script>
+  </body>
+</html>
+
+

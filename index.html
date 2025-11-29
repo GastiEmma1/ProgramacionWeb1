@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Portfolio Dra. Veterinaria - Página principal (index.html)
+  ------------------------------------------------------------
+  - Contiene la estructura base: <header>, <nav>, <main>, <footer>
+  - Incluye meta etiquetas SEO, accesibilidad y redes sociales.
+  - La navegación enlaza a secciones internas y servirá como
+    base para futuras páginas (ABM de turnos, servicios, etc.).
+  ============================================================
+-->
+<html lang="es">
+  <head>
+    <!-- =================== Configuración básica del documento =================== -->
+    <meta charset="UTF-8" />
+    <!-- 1.5.5 charset: codificación de caracteres para soportar acentos y símbolos -->
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- 1.5.4 viewport: diseño responsive en móviles -->
+
+    <title>Portfolio Dra. Veterinaria | Clínica y Cuidado Animal</title>
+    <!-- 1.6: El título refleja correctamente el contenido de la página -->
+
+    <!-- =================== Metadatos de autoría y descripción =================== -->
+    <meta
+      name="author"
+      content="Dra. Sol Barel - Portfolio Veterinaria"
+    />
+    <!-- 1.5.1 autor: responsable del contenido del sitio -->
+
+    <meta
+      name="description"
+      content="Portfolio profesional de la Dra. Sol Barel, médica veterinaria en CABA: atención clínica para perros y gatos, turnos online, vacunación, desparasitación y asesoramiento integral para el cuidado de tu mascota."
+    />
+    <!-- 1.5.2 descripción: resumen del contenido de la página para SEO -->
+
+    <meta
+      name="keywords"
+      content="veterinaria, doctora veterinaria, clínica veterinaria, turnos veterinaria, mascotas, perros, gatos, vacunación, desparasitación"
+    />
+    <!-- 1.5.3 palabras clave: ayuda en motores de búsqueda y organización -->
+
+    <!-- =================== Control de indexación y robots =================== -->
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+    <!-- 1.5.6 robots: indicar si se indexa la página y se siguen enlaces -->
+
+    <meta
+      name="googlebot"
+      content="index, follow"
+    />
+    <!-- 1.5.8 googlebot: directivas específicas para el robot de Google -->
+
+    <meta
+      name="notranslate"
+      content="no"
+    />
+    <!-- 1.5.9 notranslate: evitar traducción automática -->
+
+    <meta
+      name="google-site-verification"
+      content="CODIGO_DE_VERIFICACION_AQUI"
+    />
+    <!-- 1.5.10 google-site-verification: se reemplaza luego con el código real -->
+
+    <!-- =================== Metadatos adicionales =================== -->
+    <meta
+      http-equiv="refresh"
+      content="1200"
+    />
+    <!-- 1.5.11/1.5.12 refrescar: recarga la página cada 1200s como ejemplo -->
+
+    <meta
+      name="rating"
+      content="general"
+    />
+    <!-- 1.5.13/1.5.14 clasificación: contenido apto para todo público -->
+
+    <meta
+      name="application-name"
+      content="Portfolio Dra. Veterinaria"
+    />
+    <!-- 1.5.15 nombre-aplicación: nombre mostrado en algunos navegadores -->
+
+    <meta
+      name="theme-color"
+      content="#a8509b"
+    />
+    <!-- 1.5.16 theme-color: color para la barra de navegación en móviles -->
+
+    <meta
+      http-equiv="Content-Language"
+      content="es"
+    />
+    <!-- 1.5.19 content-language: idioma principal del contenido -->
+
+    <meta
+      name="generator"
+      content="Desarrollado manualmente con HTML5, CSS3 y JavaScript ES6"
+    />
+    <!-- 1.5.20 generador: herramienta o método de creación del sitio -->
+
+    <!-- =================== Open Graph (para redes sociales) =================== -->
+    <meta
+      property="og:title"
+      content="Portfolio Dra. Veterinaria | Cuidado Integral de Mascotas"
+    />
+    <meta
+      property="og:description"
+      content="Conoce a la Dra. Veterinaria, sus servicios clínicos, filosofía de trabajo y agenda tu turno online para el cuidado de tu mascota."
+    />
+    <meta
+      property="og:image"
+      content="https://ejemplo.com/imagenes/preview-portfolio-veterinaria.png"
+    />
+    <!-- TODO: reemplazar por una URL real una vez que tengamos la imagen -->
+    <meta
+      property="og:url"
+      content="https://ejemplo.com"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <!-- =================== Twitter Cards =================== -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      name="twitter:title"
+      content="Portfolio Dra. Veterinaria"
+    />
+    <meta
+      name="twitter:description"
+      content="Clínica veterinaria, servicios personalizados y turnos online para el cuidado de tu mascota."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ejemplo.com/imagenes/preview-portfolio-veterinaria-twitter.png"
+    />
+
+    <!-- =================== Favicon =================== -->
+    <!--
+      1.7: Favicon visible en la pestaña del navegador.
+      Cuando tengamos el ícono real, guardarlo en:
+      ./Imagenes/favicon.png o ./Imagenes/favicon.ico
+    -->
+    <link
+      rel="icon"
+      href="./Imagenes/favicon.png"
+      type="image/png"
+    />
+
+    <!-- =================== Fuentes (Google Fonts como fallback) =================== -->
+    <!--
+      Tipografías principales:
+      - Bambi Font (decorativa) y Avenir Light (texto) si están disponibles
+      - Fallbacks similares desde Google Fonts:
+        * Baloo 2 (para títulos, similar a Bambi en sensación)
+        * Nunito (para texto, similar a Avenir Light)
+    -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =================== Hoja de estilos principal =================== -->
+    <!-- 1.4 y 3.1: vínculo correcto a CSS externo -->
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+  </head>
+
+  <body>
+    <!-- Enlace de "saltar al contenido" para mejorar accesibilidad (6.17) -->
+    <a
+      href="#contenido-principal"
+      class="salto-navegacion"
+      >Saltar al contenido principal</a
+    >
+
+    <!-- =================== Encabezado del sitio =================== -->
+    <!-- 1.16 y 2.1: uso de <header> semántico -->
+    <header>
+      <div class="contenedor barra-superior">
+        <!-- Identidad visual de la doctora / marca -->
+        <div class="logo-sitio">
+          <!--
+            Imagen de perfil / logo:
+            Guardar en ./Imagenes/ y actualizar el atributo src.
+            2.8 y 6.1: incluir siempre alt descriptivo.
+          -->
+          <img
+            src="./Imagenes/Icono1.jpg"
+            alt="Ícono de la clínica veterinaria de la Dra. Sol Barel"
+            class="logo-sitio__imagen"
+          />
+          <div>
+            <div class="logo-sitio__marca">Dra. Sol Barel</div>
+            <div class="logo-sitio__subtitulo">
+              Médica Veterinaria · Cuidado integral de perros y gatos
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón hamburguesa para menú en móviles -->
+        <button
+          class="nav-toggle"
+          aria-label="Abrir o cerrar menú de navegación"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          <span class="nav-toggle__linea"></span>
+        </button>
+
+        <!-- Navegación principal del sitio -->
+        <!-- 1.8: estructura de navegación con <nav> -->
+        <nav
+          aria-label="Navegación principal"
+          class="nav-principal"
+        >
+          <ul
+            id="menu-principal"
+            class="nav-lista"
+          >
+            <!-- 1.9 y 2.9: enlaces descriptivos -->
+            <li class="nav-item">
+              <a href="#inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a href="#sobre-mi">Sobre mí</a>
+            </li>
+            <li class="nav-item">
+              <a href="#servicios">Servicios</a>
+            </li>
+            <!-- Enlace a la página dedicada al ABM de turnos -->
+            <li class="nav-item">
+              <a href="turnos.html">Turnos</a>
+            </li>
+
+            <!-- Menú desplegable: agrupa secciones/páginas relacionadas -->
+            <li class="nav-item nav-item--dropdown">
+              <!--
+                1.10: más adelante podemos añadir enlaces externos con
+                target="_blank" dentro del desplegable (ej: redes sociales).
+              -->
+              <button
+                class="nav-dropdown__toggle"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Más secciones
+                <span class="nav-dropdown__icon">▾</span>
+              </button>
+              <ul
+                class="nav-dropdown__lista"
+                aria-label="Más secciones del sitio"
+              >
+                <li class="nav-dropdown__item">
+                  <a href="#testimonios">Testimonios</a>
+                </li>
+                <li class="nav-dropdown__item">
+                  <a href="#contacto">Contacto</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =================== Contenido principal =================== -->
+    <!-- 1.15 y 2.1: contenidos principales dentro de <main> -->
+    <main id="contenido-principal">
+      <!-- =================== Sección Inicio / Hero =================== -->
+      <!-- 2.2 y 2.3: un único <h1> representando el tema principal -->
+      <section
+        id="inicio"
+        class="hero"
+        aria-labelledby="titulo-hero"
+      >
+        <div class="contenedor hero-grid">
+          <div>
+            <p class="hero-destacado">
+              Cuidado profesional y cercano para tus mascotas
+            </p>
+            <h1
+              id="titulo-hero"
+              class="hero-titulo-principal"
+            >
+              Clínica veterinaria especializada en bienestar y salud animal
+            </h1>
+            <p class="hero-subtitulo">
+              Soy la Dra. Sol Barel, médica veterinaria con mas de 8 años de
+              experiencia en medicina preventiva, clínica y bienestar de perros
+              y gatos. Mi objetivo es acompañarte en cada etapa de la vida de tu
+              mascota con empatía, claridad y profesionalismo.
+            </p>
+            <div class="hero-acciones">
+              <a
+                href="#turnos"
+                class="boton boton--primario"
+              >
+                Solicitar turno
+              </a>
+              <a
+                href="#sobre-mi"
+                class="boton boton--secundario"
+              >
+                Conocer más sobre mí
+              </a>
+            </div>
+          </div>
+
+          <!-- Imagen principal: clínica / la doctora con pacientes -->
+          <figure class="hero-imagen-marco">
+            <img
+              src="./Imagenes/Principal1.jpg"
+              alt="La Dra. Sol Barel atendiendo a una mascota en el consultorio veterinario"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- =================== Sección Sobre mí =================== -->
+      <section
+        id="sobre-mi"
+        aria-labelledby="titulo-sobre-mi"
+        class="seccion--fondo-suave"
+      >
+        <div class="contenedor">
+          <h2
+            id="titulo-sobre-mi"
+            class="seccion-titulo"
+          >
+            Sobre mí
+          </h2>
+          <p class="seccion-subtitulo">
+            Me licencié en la USAL y desde entonces no he dejado de formarme en medicina interna, cirugía de tejidos blandos, dermatología y comportamiento animal.
+          </p>
+          <p>
+            He trabajado en clínicas en Buenos Aires, Entre Ríos y Santa Cruz, y también he colaborado en proyectos de protección animal y esterilización. Mi forma de entender esta profesión es muy simple: cada paciente merece ser escuchado y tratado como si fuera el único. Por eso dedico el tiempo que haga falta en cada consulta, explico todo con calma y busco siempre la opción menos invasiva y más respetuosa para tu compañero. Aquí no solo curamos, acompañamos.
+
+
+          </p>
+        </div>
+      </section>
+
+      <!-- =================== Sección Servicios =================== -->
+      <section
+        id="servicios"
+        aria-labelledby="titulo-servicios"
+      >
+        <div class="contenedor">
+          <h2
+            id="titulo-servicios"
+            class="seccion-titulo"
+          >
+            Servicios veterinarios
+          </h2>
+          <p class="seccion-subtitulo">
+            Servicios de clínica veterinaria en CABA orientados a la medicina preventiva,
+            el diagnóstico temprano y el bienestar de perros y gatos.
+          </p>
+
+          <!-- Ejemplo de tarjetas de servicio (se ampliarán más adelante) -->
+          <div class="tarjetas-grid">
+            <article class="tarjeta">
+              <h3 class="tarjeta-titulo">Consultas clínicas generales</h3>
+              <p class="tarjeta-texto">
+                Evaluación integral del estado de salud de tu mascota,
+                diagnóstico inicial y planificación de tratamientos o estudios
+                complementarios.
+              </p>
+            </article>
+            <article class="tarjeta">
+              <h3 class="tarjeta-titulo">Vacunación y desparasitación</h3>
+              <p class="tarjeta-texto">
+                Planificación personalizada de esquemas de vacunación y
+                desparasitación interna y externa, adaptados a la edad y estilo
+                de vida.
+              </p>
+            </article>
+            <article class="tarjeta">
+              <h3 class="tarjeta-titulo">Asesoramiento nutricional</h3>
+              <p class="tarjeta-texto">
+                Orientación sobre el tipo de alimentación más adecuado para tu
+                mascota, incluyendo dietas especiales y control de peso.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================== Sección Turnos (introducción y enlace al ABM) =================== -->
+      <!--
+        Más adelante podemos separar esto en turnos.html y conectar con
+        JavaScript (LocalStorage) para un ABM de turnos (Altas, Bajas, Modificaciones).
+      -->
+      <section
+        id="turnos"
+        aria-labelledby="titulo-turnos"
+        class="seccion--fondo-suave"
+      >
+        <div class="contenedor">
+          <h2
+            id="titulo-turnos"
+            class="seccion-titulo"
+          >
+            Turnos online
+          </h2>
+          <p class="seccion-subtitulo">
+            Reserva un turno para tu mascota de manera rápida y sencilla.
+          </p>
+          <p>
+            Desde aquí podrás acceder al módulo completo de turnos, donde podrás
+            cargar, editar y eliminar turnos. Los datos se almacenan en tu
+            navegador utilizando LocalStorage.
+          </p>
+          <p>
+            <a
+              href="turnos.html"
+              class="boton boton--primario"
+              >Ir al módulo de turnos</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- =================== Sección Testimonios =================== -->
+      <section
+        id="testimonios"
+        aria-labelledby="titulo-testimonios"
+      >
+        <div class="contenedor">
+          <h2
+            id="titulo-testimonios"
+            class="seccion-titulo"
+          >
+            Testimonios
+          </h2>
+          <p class="seccion-subtitulo">
+            Algunos comentarios de tutores de mascotas que confiaron en la
+            atención de la Dra. Sol Barel.
+          </p>
+          <!-- Carrusel de testimonios: las imágenes se completarán más adelante -->
+          <div
+            class="testimonios-carrusel"
+            aria-live="polite"
+          >
+            <button
+              type="button"
+              class="testimonios-control testimonios-control--prev"
+              aria-label="Ver testimonio anterior"
+            >
+              ‹
+            </button>
+
+            <div class="testimonios-ventana">
+              <div class="testimonios-lista">
+                <!-- Slide 1: muestra dos cards lado a lado -->
+                <div class="testimonio-slide testimonio-slide--activo">
+                  <!-- Testimonio 1 -->
+                  <article class="testimonio-card">
+                    <figure class="testimonio-card__figura">
+                      <img
+                        src="./Imagenes/Testimonio1.jpg"
+                        alt="Tutor con su perro en la sala de espera de la clínica veterinaria"
+                        class="testimonio-card__imagen"
+                      />
+                    </figure>
+                    <div class="testimonio-card__contenido">
+                      <p class="testimonio-card__texto">
+                        “Sol fue súper cuidadosa con Mora, nos explicó cada paso y
+                        nos dio un plan claro para seguir en casa. Se nota que
+                        realmente le importan sus pacientes.”
+                      </p>
+                      <p class="testimonio-card__autor">
+                        — Laura, tutora de Mora
+                      </p>
+                    </div>
+                  </article>
+
+                  <!-- Testimonio 2 -->
+                  <article class="testimonio-card">
+                    <figure class="testimonio-card__figura">
+                      <img
+                        src="./Imagenes/Testimonio2.jpg"
+                        alt="Gato siendo revisado suavemente sobre la camilla"
+                        class="testimonio-card__imagen"
+                      />
+                    </figure>
+                    <div class="testimonio-card__contenido">
+                      <p class="testimonio-card__texto">
+                        “Llevamos a Tomás por un problema crónico de piel y por
+                        primera vez sentimos que alguien escuchó toda nuestra
+                        historia. Hoy está estable y feliz.”
+                      </p>
+                      <p class="testimonio-card__autor">
+                        — Martín, tutor de Tomás
+                      </p>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Slide 2: tercer testimonio (y futuros) -->
+                <div class="testimonio-slide">
+                  <!-- Testimonio 3 -->
+                  <article class="testimonio-card">
+                    <figure class="testimonio-card__figura">
+                      <img
+                        src="./Imagenes/Testimonio3.jpg"
+                        alt="Tutor sosteniendo a su gato en brazos en la clínica"
+                        class="testimonio-card__imagen"
+                      />
+                    </figure>
+                    <div class="testimonio-card__contenido">
+                      <p class="testimonio-card__texto">
+                        “Encontramos en Sol una profesional que se toma el tiempo
+                        de conocer a cada paciente. Milo ya no tiene miedo de
+                        venir a la veterinaria.”
+                      </p>
+                      <p class="testimonio-card__autor">
+                        — Sofía, tutora de Milo
+                      </p>
+                    </div>
+                  </article>
+
+                  <!-- Testimonio 4 -->
+                  <article class="testimonio-card">
+                    <figure class="testimonio-card__figura">
+                      <img
+                        src="./Imagenes/Testimonio4.jpg"
+                        alt="Perro recibiendo caricias luego de una consulta"
+                        class="testimonio-card__imagen"
+                      />
+                    </figure>
+                    <div class="testimonio-card__contenido">
+                      <p class="testimonio-card__texto">
+                        “Desde el primer día sentimos mucha confianza. Cada
+                        control con Nala es tranquilo y siempre salimos con un
+                        plan claro de cuidados.”
+                      </p>
+                      <p class="testimonio-card__autor">
+                        — Diego, tutor de Nala
+                      </p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="testimonios-control testimonios-control--next"
+              aria-label="Ver testimonio siguiente"
+            >
+              ›
+            </button>
+          </div>
+
+          <!-- Indicadores del carrusel -->
+          <div
+            class="testimonios-indicadores"
+            role="tablist"
+            aria-label="Seleccionar testimonio"
+          >
+            <button
+              type="button"
+              class="testimonios-indicador testimonios-indicador--activo"
+              data-indice="0"
+              aria-label="Ver testimonio 1"
+              aria-selected="true"
+              role="tab"
+            ></button>
+            <button
+              type="button"
+              class="testimonios-indicador"
+              data-indice="1"
+              aria-label="Ver testimonio 2"
+              aria-selected="false"
+              role="tab"
+            ></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de Preguntas frecuentes eliminada a pedido del proyecto -->
+
+      <!-- =================== Sección Contacto =================== -->
+      <section
+        id="contacto"
+        aria-labelledby="titulo-contacto"
+      >
+        <div class="contenedor">
+          <h2
+            id="titulo-contacto"
+            class="seccion-titulo"
+          >
+            Contacto
+          </h2>
+          <p class="seccion-subtitulo">
+            Completa el siguiente formulario y responderé tu consulta lo antes
+            posible.
+          </p>
+          <!--
+            Estructura base del formulario:
+            - Más adelante lo validaremos con JavaScript (4.10, 6.6).
+          -->
+          <form
+            id="form-contacto"
+            novalidate
+          >
+            <div class="tarjetas-grid">
+              <div class="tarjeta">
+                <label for="nombre">Nombre y apellido</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                  placeholder="Ej: Ana López"
+                />
+              </div>
+              <div class="tarjeta">
+                <label for="email">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="Ej: ana@mail.com"
+                />
+              </div>
+              <div class="tarjeta">
+                <label for="motivo">Motivo de la consulta</label>
+                <select
+                  id="motivo"
+                  name="motivo"
+                  required
+                >
+                  <option value="">Seleccionar una opción</option>
+                  <option value="turno">Solicitar turno</option>
+                  <option value="consulta-general">Consulta general</option>
+                  <option value="seguimiento">Seguimiento de tratamiento</option>
+                </select>
+              </div>
+              <div class="tarjeta">
+                <label for="mensaje">Mensaje</label>
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="4"
+                  required
+                  placeholder="Escribe aquí tu consulta..."
+                ></textarea>
+              </div>
+            </div>
+            <p style="margin-top: 1rem">
+              <button
+                type="submit"
+                class="boton boton--primario"
+              >
+                Enviar consulta
+              </button>
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- =================== Pie de página =================== -->
+    <!-- 1.17 y 2.1: uso de <footer> con información institucional -->
+    <footer>
+      <div class="contenedor footer-grid">
+        <section aria-label="Información de la clínica">
+          <h3 class="footer-col-titulo">Clínica Veterinaria</h3>
+          <p>
+            Carlos Calvo 2788, CABA · Teléfono: (xxx) xxx-xxxx<br />
+            Horarios de atención: Lun a Vie de 9 a 19 h · Sábados de 9 a 13 h.
+          </p>
+        </section>
+        <section aria-label="Enlaces rápidos">
+          <h3 class="footer-col-titulo">Enlaces rápidos</h3>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#turnos">Turnos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </section>
+        <section aria-label="Redes sociales">
+          <h3 class="footer-col-titulo">Seguir en redes</h3>
+          <p>
+            <!--
+              Cuando tengamos los perfiles reales, actualizamos los href,
+              manteniendo target="_blank" y rel para mayor seguridad.
+            -->
+            <a
+              href="https://www.instagram.com/dogtora_barel?igsh=MXdzd3FwcTB2YmM1cg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Abrir perfil de Instagram en nueva pestaña"
+              >Instagram</a
+            >
+            <br />
+            
+          </p>
+        </section>
+      </div>
+
+      
+    <!-- =================== JavaScript principal =================== -->
+    <!-- 1.4 y 4.1: Archivo JS externo correctamente vinculado -->
+    <script
+      src="js/main.js"
+      defer
+    ></script>
+  </body>
+</html>
+
+
